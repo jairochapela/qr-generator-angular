@@ -16,11 +16,11 @@
                   <label>Tipo de QR</label><br>
                   <div class="radio">
                       <label class="radio">
-                        <input type="radio" name="mode" value="url" formControlName="mode">
+                        <input type="radio" name="mode" value="url" formControlName="mode" (change)="onChangeMode()">
                         URL
                       </label>
                       <label class="radio">
-                        <input type="radio" name="mode" value="text" formControlName="mode">
+                        <input type="radio" name="mode" value="text" formControlName="mode" (change)="onChangeMode()">
                         Text
                       </label>
                     </div>
@@ -29,20 +29,18 @@
               <div class="field">
                   <label for="url">URL</label>
                   <div class="control">
-                      <input class="input" type="text" name="url" formControlName="url" placeholder="https://..." [disabled]="formData.value.mode!=='url'">
+                      <input class="input" type="text" name="url" formControlName="url" placeholder="https://...">
                   </div>
               </div>
 
               <div class="field">
                   <label for="text">Text</label>
                   <div class="control">
-                      <textarea name="text" class="textarea" id="text" rows="6" placeholder="Introduzca un texto" formControlName="text" [disabled]="formData.value.mode!=='text'"></textarea>
+                      <textarea name="text" class="textarea" id="text" rows="6" placeholder="Introduzca un texto" formControlName="text"></textarea>
                   </div>      
               </div>
             </form>
       </div>
-
-      <p>URL: {{formData.value | json}}</p>
     </div>
 
     <div class="column">
