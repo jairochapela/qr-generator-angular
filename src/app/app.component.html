@@ -1,20 +1,43 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<nav class="navbar">
+  <div class="navbar-brand has-text-centered">
+    <a class="navbar-item">
+      <h1>QR code generator</h1>
+    </a>
+  </div>
+</nav>
 
+<section class="section">
+  <div class="columns">
+    <div class="column">
+      <form action="" [formGroup]="formData">
+        <div class="control">
+          <label class="radio">
+            <input type="radio" name="mode" value="url" formControlName="mode">
+            URL
+          </label>
+          <label class="radio">
+            <input type="radio" name="mode" value="text" formControlName="mode">
+            Text
+          </label>
+        </div>
+        <div class="control">
+          <label for="url">URL</label>
+          <input type="text" name="url" formControlName="url">
+        </div>
+      </form>
+      <p>URL: {{formData.value | json}}</p>
+    </div>
+
+    <div class="column">
+      <qr-code [value]="formData.value.url" [size]="512" level="Q"></qr-code>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>&copy; Jairo Chapela-Martínez</p>
+    </div>
+  </div>
+</footer>
