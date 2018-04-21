@@ -9,31 +9,46 @@
 <section class="section">
   <div class="columns">
     <div class="column">
-      <form action="" [formGroup]="formData">
-        <div class="control">
-          <label class="radio">
-            <input type="radio" name="mode" value="url" formControlName="mode">
-            URL
-          </label>
-          <label class="radio">
-            <input type="radio" name="mode" value="text" formControlName="mode">
-            Text
-          </label>
-        </div>
-        <div class="control">
-          <label for="url">URL</label>
-          <input type="text" name="url" formControlName="url" [disabled]="formData.value.mode!=='url'">
-        </div>
-        <div class="control">
-          <label for="text">Text</label>
-          <textarea name="text" id="text" cols="30" rows="6" [disabled]="formData.value.mode!=='text'"></textarea>
-        </div>
-      </form>
+      <div class="box">
+          <form action="" [formGroup]="formData">
+
+              <div class="field">
+                  <label>Tipo de QR</label><br>
+                  <div class="radio">
+                      <label class="radio">
+                        <input type="radio" name="mode" value="url" formControlName="mode">
+                        URL
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="mode" value="text" formControlName="mode">
+                        Text
+                      </label>
+                    </div>
+              </div>
+
+              <div class="field">
+                  <label for="url">URL</label>
+                  <div class="control">
+                      <input class="input" type="text" name="url" formControlName="url" [disabled]="formData.value.mode!=='url'">
+                  </div>
+              </div>
+
+              <div class="field">
+                  <label for="text">Text</label>
+                  <div class="control">
+                      <textarea name="text" class="textarea" id="text" rows="6" placeholder="Introduzca un texto" [disabled]="formData.value.mode!=='text'"></textarea>
+                  </div>      
+              </div>
+            </form>
+      </div>
+
       <p>URL: {{formData.value | json}}</p>
     </div>
 
     <div class="column">
-      <qr-code [value]="formData.value.url" [size]="512" level="Q"></qr-code>
+      <div class="box">
+          <qr-code [value]="formData.value.url" [size]="512" level="Q"></qr-code>
+      </div>
     </div>
   </div>
 </section>
