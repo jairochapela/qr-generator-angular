@@ -11,6 +11,13 @@ export class AppComponent {
   mode = 'url';
   formData = new FormGroup({
     mode: new FormControl(),
-    url: new FormControl()
+    url: new FormControl(),
+    text: new FormControl()
   });
+
+  getDataForQR() : string {
+    if (this.formData.get('mode').value === 'url') return this.formData.get('url').value;
+    else if (this.formData.get('mode').value === 'text') return this.formData.get('text').value;
+    else return '';
+  }
 }

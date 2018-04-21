@@ -29,14 +29,14 @@
               <div class="field">
                   <label for="url">URL</label>
                   <div class="control">
-                      <input class="input" type="text" name="url" formControlName="url" [disabled]="formData.value.mode!=='url'">
+                      <input class="input" type="text" name="url" formControlName="url" placeholder="https://..." [disabled]="formData.value.mode!=='url'">
                   </div>
               </div>
 
               <div class="field">
                   <label for="text">Text</label>
                   <div class="control">
-                      <textarea name="text" class="textarea" id="text" rows="6" placeholder="Introduzca un texto" [disabled]="formData.value.mode!=='text'"></textarea>
+                      <textarea name="text" class="textarea" id="text" rows="6" placeholder="Introduzca un texto" formControlName="text" [disabled]="formData.value.mode!=='text'"></textarea>
                   </div>      
               </div>
             </form>
@@ -47,7 +47,7 @@
 
     <div class="column">
       <div class="box">
-          <qr-code [value]="formData.value.url" [size]="512" level="Q"></qr-code>
+          <qr-code [value]="getDataForQR()" [size]="512" level="Q"></qr-code>
       </div>
     </div>
   </div>
