@@ -22,7 +22,11 @@
         </div>
         <div class="control">
           <label for="url">URL</label>
-          <input type="text" name="url" formControlName="url">
+          <input type="text" name="url" formControlName="url" [disabled]="formData.value.mode!=='url'">
+        </div>
+        <div class="control">
+          <label for="text">Text</label>
+          <textarea name="text" id="text" cols="30" rows="6" [disabled]="formData.value.mode!=='text'"></textarea>
         </div>
       </form>
       <p>URL: {{formData.value | json}}</p>
